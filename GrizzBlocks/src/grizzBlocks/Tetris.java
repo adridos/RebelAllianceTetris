@@ -62,7 +62,7 @@ public class Tetris extends Application {
 		object = a;
 		nextObj = Controller.makeRect();
 		stage.setScene(scene);
-		stage.setTitle("T E T R I S");
+		stage.setTitle("Grizz Blocks");
 		stage.show();
 
 		Timer fall = new Timer();
