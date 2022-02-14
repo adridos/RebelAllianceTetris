@@ -2,15 +2,81 @@
 package grizzBlocks;
 
 
-import javafx.scene.shape.Rectangle;
+import java.io.IOException;
 
-public class Controller {
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import java.io.IOException;
+import javafx.scene.Node;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+
+
+public class Controller implements Initializable{
+	
 	// Getting the numbers and the MESH from Tetris
 	public static final int MOVE = Tetris.MOVE;
 	public static final int SIZE = Tetris.SIZE;
 	public static int XMAX = Tetris.XMAX;
 	public static int YMAX = Tetris.YMAX;
 	public static int[][] MESH = Tetris.MESH;
+	
+	
+	
+	//home page
+	 public Stage stage;
+	 public Scene scene;
+	 public Parent root;
+	 @FXML
+	    public Button btn_home;
+
+	    @FXML
+	    public Label greeting;
+
+	    @FXML
+	    public void switchToScene1(ActionEvent event) throws IOException {
+	    	 // root = 
+	    	  root = FXMLLoader.load(getClass().getResource("FXMLHomePage.fxml"));
+	    	  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+	    	  scene = new Scene(root);
+	          stage.setScene(scene);
+	    	  stage.show(); 
+	    	
+			   //btn_home.setOnAction(e -> );
+
+	    	 }
+	
+	  /*  public void setStage(Stage stage) {
+	        this.stage = stage;
+	        btn_home.setOnAction(event -> {
+	           // commitToDatabase();
+	            stage.hide();
+	        });
+	    }
+	*/
+	    
+	    
+	    
+	    
+	    
+	    
+	
+	    private Stage myStage;
+	    public void setStage(Stage stage) {
+	         myStage = stage;
+	    }
+	
 
 	public static void MoveRight(Form form) {
 		if (form.a.getX() + MOVE <= XMAX - SIZE && form.b.getX() + MOVE <= XMAX - SIZE
@@ -106,5 +172,17 @@ public class Controller {
 			name = "i";
 		}
 		return new Form(a, b, c, d, name);
+	}
+
+
+
+
+
+
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 }

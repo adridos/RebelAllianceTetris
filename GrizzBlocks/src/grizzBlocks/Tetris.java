@@ -5,10 +5,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
+
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -17,6 +20,19 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.fxml.FXMLLoader;
+import java.io.IOException;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
 
 public class Tetris extends Application {
 	// The variables
@@ -25,9 +41,12 @@ public class Tetris extends Application {
 	public static int XMAX = SIZE * 12;
 	public static int YMAX = SIZE * 24;
 	public static int[][] MESH = new int[XMAX / SIZE][YMAX / SIZE];
-	private static Pane group = new Pane();
-	private static Form object;
-	private static Scene scene = new Scene(group, XMAX + 150, YMAX);
+	public static Pane group = new Pane();
+	public static Form object;
+	//public static Scene homeScene = new Scene("FXMLHomePage.fxml");
+	public  Scene scene = new Scene(group, XMAX + 150, YMAX);
+	//public static Window window = scene.getScene().getWindow();
+
 	public static int score = 0;
 	private static int top = 0;
 	private static boolean game = true;
@@ -37,9 +56,69 @@ public class Tetris extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
+	
 
 	@Override
 	public void start(Stage stage) throws Exception {
+		
+		
+		
+		  
+		       FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLHomePage.fxml"));
+		       //Controller controller = loader.getController();
+		       
+			   Parent root = FXMLLoader.load(getClass().getResource("FXMLHomePage.fxml"));
+			   Scene scene = new Scene(root);
+			   stage.setScene(scene);
+			   //Controller newProjectController = loader.getController();
+		       //newProjectController.setStage(stage);
+			  // controller.setStage(stage);
+			   stage.show();
+			   
+		   
+		
+	/*	Splash splash = new Splash();
+        splash.show();
+        stage.setScene(splash.getSplashScene());
+        splash.getSequentialTransition().setOnFinished(e -> {
+            Timeline timeline = new Timeline();
+            KeyFrame key = new KeyFrame(Duration.millis(800),
+                    new KeyValue(splash.getSplashScene().getRoot().opacityProperty(), 0));
+            timeline.getKeyFrames().add(key);
+            timeline.setOnFinished((event) -> {
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("FXMLHomePage.fxml"));
+                    //
+                    Scene scene = new Scene(root);
+
+                    stage.setScene(scene);
+                }
+                catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            });
+            timeline.play();
+        });
+//
+        stage.show();
+		
+		
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+		  
+		  
+		  
 		for (int[] a : MESH) {
 			Arrays.fill(a, 0);
 		}
