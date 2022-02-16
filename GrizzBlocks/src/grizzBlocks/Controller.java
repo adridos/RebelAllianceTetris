@@ -35,9 +35,11 @@ public class Controller implements Initializable{
 	
 	
 	//home page
-	 public Stage stage;
-	 public Scene scene;
-	 public Parent root;
+	
+	public static Scene scene;
+	public static Stage stage;
+	
+	
 	 @FXML
 	    public Button btn_home;
 
@@ -46,36 +48,28 @@ public class Controller implements Initializable{
 
 	    @FXML
 	    public void switchToScene1(ActionEvent event) throws IOException {
-	    	 // root = 
-	    	  root = FXMLLoader.load(getClass().getResource("FXMLHomePage.fxml"));
-	    	  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-	    	  scene = new Scene(root);
-	          stage.setScene(scene);
-	    	  stage.show(); 
-	    	
-			   //btn_home.setOnAction(e -> );
-
-	    	 }
-	
-	  /*  public void setStage(Stage stage) {
+	    	stage.setScene(scene);
+	    }
+	/*
+	    public void setStage(Stage stage) {
 	        this.stage = stage;
 	        btn_home.setOnAction(event -> {
-	           // commitToDatabase();
+	           
 	            stage.hide();
 	        });
 	    }
-	*/
-	    
-	    
-	    
-	    
-	    
-	    
 	
+	    
+	    */
+	    
+	    
+	    
+	    
+	/*
 	    private Stage myStage;
 	    public void setStage(Stage stage) {
 	         myStage = stage;
-	    }
+	    } */
 	
 
 	public static void MoveRight(Form form) {

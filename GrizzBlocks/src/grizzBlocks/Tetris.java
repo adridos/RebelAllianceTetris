@@ -43,9 +43,7 @@ public class Tetris extends Application {
 	public static int[][] MESH = new int[XMAX / SIZE][YMAX / SIZE];
 	public static Pane group = new Pane();
 	public static Form object;
-	//public static Scene homeScene = new Scene("FXMLHomePage.fxml");
 	public  Scene scene = new Scene(group, XMAX + 150, YMAX);
-	//public static Window window = scene.getScene().getWindow();
 
 	public static int score = 0;
 	private static int top = 0;
@@ -63,60 +61,6 @@ public class Tetris extends Application {
 	public void start(Stage stage) throws Exception {
 		
 		
-		
-		  
-		       FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLHomePage.fxml"));
-		       //Controller controller = loader.getController();
-		       
-			   Parent root = FXMLLoader.load(getClass().getResource("FXMLHomePage.fxml"));
-			   Scene scene = new Scene(root);
-			   stage.setScene(scene);
-			   //Controller newProjectController = loader.getController();
-		       //newProjectController.setStage(stage);
-			  // controller.setStage(stage);
-			   stage.show();
-			   
-		   
-		
-	/*	Splash splash = new Splash();
-        splash.show();
-        stage.setScene(splash.getSplashScene());
-        splash.getSequentialTransition().setOnFinished(e -> {
-            Timeline timeline = new Timeline();
-            KeyFrame key = new KeyFrame(Duration.millis(800),
-                    new KeyValue(splash.getSplashScene().getRoot().opacityProperty(), 0));
-            timeline.getKeyFrames().add(key);
-            timeline.setOnFinished((event) -> {
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("FXMLHomePage.fxml"));
-                    //
-                    Scene scene = new Scene(root);
-
-                    stage.setScene(scene);
-                }
-                catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            });
-            timeline.play();
-        });
-//
-        stage.show();
-		
-		
-		*/
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-			
-		  
 		  
 		  
 		for (int[] a : MESH) {
@@ -180,6 +124,18 @@ public class Tetris extends Application {
 			}
 		};
 		fall.schedule(task, 0, 300); 
+		
+		
+		
+		Controller.scene = scene;
+		Controller.stage = stage;
+			       
+		Parent root = FXMLLoader.load(getClass().getResource("FXMLHomePage.fxml"));
+		Scene scene1 = new Scene(root);
+		stage.setScene(scene1);
+
+		
+		
 	}
 
 	private void moveOnKeyPress(Form form) {
